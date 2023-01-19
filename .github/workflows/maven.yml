@@ -30,6 +30,14 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+      
+      
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-java-app.jar
+        path: my-java-app.jar
+      
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
 #     - name: Update dependency graph
