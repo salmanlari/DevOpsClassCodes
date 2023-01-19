@@ -14,12 +14,11 @@ on:
 #   pull_request:
 #     branches: [ "master" ]
     workflow_dispatch:
-    
-      env:
+#  env:
 #       IMAGE_TAG: ${{ github.sha }}
 #       KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-      DOCKER_USER: ${{secrets.DOCKER_HUB_USERNAME}}
-      DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}                                                                                               
+#   DOCKER_USER: ${{secrets.DOCKER_HUB_USERNAME}}
+#   DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}                                                                                               
 #       RELEASE_IMAGE: 7011347758/test${{ github.sha }}
 
 jobs:
