@@ -38,11 +38,11 @@ jobs:
       run: mvn -B package --file pom.xml
       
       
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: addressbook.war
-        path: /home/runner/work/DevOpsClassCodes/DevOpsClassCodes/target
+#     - name: Upload artifact
+#       uses: actions/upload-artifact@v2
+#       with:
+#         name: addressbook.war
+#         path: /home/runner/work/DevOpsClassCodes/DevOpsClassCodes/target
         
     
 #     - name: Configure AWS credentials
@@ -52,18 +52,18 @@ jobs:
 #           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 #           aws-region: ap-south-1
     
-    - name: Generate tags
-      id: docker_tags
-      uses: anothrNick/github-tag-action@1.40.0
-      env:
-         GITHUB_TOKEN: ${{ secrets.TOKEN }}
-         WITH_V: true
+#     - name: Generate tags
+#       id: docker_tags
+#       uses: anothrNick/github-tag-action@1.40.0
+#       env:
+#          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+#          WITH_V: true
          
-    - name: Build and Push Docker Image
-      uses: mr-smithers-excellent/docker-build-push@v5.8
-      with:
-          image: 7011347758/test
-          tags: ${{ steps.docker_tags.outputs.tag }}
-          registry: docker.io
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+#     - name: Build and Push Docker Image
+#       uses: mr-smithers-excellent/docker-build-push@v5.8
+#       with:
+#           image: 7011347758/test
+#           tags: ${{ steps.docker_tags.outputs.tag }}
+#           registry: docker.io
+#           username: ${{ secrets.DOCKER_USERNAME }}
+#           password: ${{ secrets.DOCKER_PASSWORD }}
