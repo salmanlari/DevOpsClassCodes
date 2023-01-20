@@ -37,6 +37,11 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       
+    - uses: actions/download-artifact@v3
+      with:
+        name: addressbook.war
+        path: /home/runner/work/DevOpsClassCodes/DevOpsClassCodes/target
+      
       
 #     - name: Upload artifact
 #       uses: actions/upload-artifact@v2
