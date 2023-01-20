@@ -41,8 +41,8 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
-        name: my-java-app.jar
-        path: my-java-app.jar
+        name: addressbook.war
+        path: /home/runner/work/DevOpsClassCodes/DevOpsClassCodes/target
         
     
 #     - name: Configure AWS credentials
