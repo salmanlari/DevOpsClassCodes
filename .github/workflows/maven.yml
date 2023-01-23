@@ -1,10 +1,4 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
 
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
 
 name: Java build and push on docker hub
 
@@ -37,10 +31,22 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       
-    - uses: actions/download-artifact@v3
+      
+      
+  
+    - run: |
+          touch envfile.txt
+          env >> envfile.txt
+      
+    - uses: actions/upload-artifact@v3
       with:
-        name: addressbook.war
-        path: /home/runner/work/DevOpsClassCodes/DevOpsClassCodes/target
+          name: my-artifact
+          path: envfile.txt
+      
+#     - uses: actions/download-artifact@v3
+#       with:
+#         name: addressbook.war
+#         path: /home/runner/work/DevOpsClassCodes/DevOpsClassCodes/target
       
       
 #     - name: Upload artifact
